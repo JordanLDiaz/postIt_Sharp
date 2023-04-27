@@ -6,9 +6,12 @@ public class AlbumsController : ControllerBase
 {
   private readonly AlbumsService _albumsService;
 
-  public AlbumsController(AlbumsService albumsService)
+  private readonly CollaboratorsService _collaboratorsService;
+
+  public AlbumsController(AlbumsService albumsService, CollaboratorsService collaboratorsService)
   {
     _albumsService = albumsService;
+    _collaboratorsService = collaboratorsService;
   }
 
   [HttpGet]
@@ -52,4 +55,19 @@ public class AlbumsController : ControllerBase
       return BadRequest(e.Message);
     }
   }
+
+  [HttpGet("{albumId}/collaborators")]
+  public ActionResult<List<AlbumCollaborator>> GetCollaboratorsForAlbum(int albumId)
+  {
+    try
+    {
+      List<AlbumCollaborator> collabs = _collaboratorsService.GetCollaboratorsForAlbum(albumId);
+      return Ok(collabs);
+    }
+    catch (Exception e)
+    {
+      return BadRequest(e.Message);
+    }
+  }
+
 }

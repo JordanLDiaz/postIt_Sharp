@@ -1,15 +1,15 @@
 namespace sharpIt.Models;
 
-public class Album
+public class Album : RepoItem<int>
 {
-  public int Id;
+  // public int Id;
   public string Title { get; set; }
   public string Category { get; set; }
   public string CoverImg { get; set; }
   public string CreatorId { get; set; }
   public bool Archived { get; set; }
 
-  public Account Creator { get; set; }
+  public Profile Creator { get; set; }
 
 
   // the {get; set;} allows for more functionality when someone gets a value, or sets a value

@@ -29,4 +29,5 @@ public class PicturesController : ControllerBase
       return BadRequest(e.Message);
     }
   }
+
 }

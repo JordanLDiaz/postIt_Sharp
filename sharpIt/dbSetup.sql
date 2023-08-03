@@ -10,6 +10,10 @@ CREATE TABLE
 
 -- SECTION ALBUMS
 
+-- NOTE creatorId(255) below needs to match exactly the id from accounts above or else we won't be able to compare/connect the two.
+
+-- NOTE foreign key/virtual is the name of the property in the current table (creatorId), references where ever we get that creatorId from (accounts(id))
+
 CREATE TABLE
     albums(
         id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,

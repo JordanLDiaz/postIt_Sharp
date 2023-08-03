@@ -15,6 +15,7 @@ public class PicturesController : ControllerBase
 
   [HttpPost]
   [Authorize]
+  // NOTE This is an asynchronous request, so we need to specify that this is a task as part of the return type. Task is similar to a promise
   public async Task<ActionResult<Picture>> CreatePicture([FromBody] Picture pictureData)
   {
     try
